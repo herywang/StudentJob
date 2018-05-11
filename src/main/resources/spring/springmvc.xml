@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+
+	<!-- 批量配置handler -->
+	<!-- ！！！！！！！！！！！！！！！！！！！！！！！！！！！修改包名 -->
+	<context:component-scan base-package="cn.mdx.controller"/>
+
+
+
+	<!--配置各种适配器，（各种注解的适配器）包括@RequestParam("") 等   (注解驱动)-->
+	<!--conversion-service 配置参数绑定 -->
+	<!--validator 配置校验器-->
+	<mvc:annotation-driven conversion-service="conversionService" />
+
+	<!-- 静态资源访问 -->
+	<mvc:resources location="/static/" mapping="/static/**"/>
+	<!-- 自定义参数绑定 -->
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+				<!-- ！！！！！！！！！！！！！！！！！！！！！！！！！！！修改包名 -->
+				<bean class="cn.mdx.common.converter.DateConverter"/>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod" value="cn.mdx.common.utils.CheckUtil.setResources" />
+		<!-- 这里配置参数 -->
+		<property name="arguments" ref="messageSource">
+		</property>
+	</bean>
+
+	<!-- 国际化 -->
+	<bean id="messageSource"
+		  class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>exceptions</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- 基于Cookie的本地化解析器 -->
+	<!-- 如果需要其他地方用的spring的国际化，可以使用这个配置
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		<property name="cookieMaxAge" value="604800" />
+		<property name="defaultLocale" value="zh_CN" />
+		<property name="cookieName" value="lang"></property>
+	</bean>
+	 -->
+
+	<!--视图解析器-->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+
+	<!--异常处理-->
+	<bean class="cn.mdx.common.exceptions.CustomExceptionResolver"/>
+
+
+	<!--过滤器-->
+	<mvc:interceptors>
+		<!--顺序执行-->
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<!-- ！！！！！！！！！！！！！！！！！！！！！！！！！！！修改包名 -->
+			<bean class="cn.mdx.interceptor.UserLogInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<!--文件上传-->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设置默认编码 -->
+		<property name="defaultEncoding" value="utf-8"/>
+		<!-- 上传图片最大大小10M-->
+		<property name="maxUploadSize" value="-1"/>
+	</bean>
+
+	<!-- aop -->
+	<aop:aspectj-autoproxy />
+
+	<bean id="controllerAop" class="cn.mdx.common.aop.ControllerAOP" />
+
+	<aop:config>
+		<aop:pointcut id="target" expression="execution(* cn.mdx.controller.*.*(..))" />
+
+		<aop:aspect ref="controllerAop">
+			<!-- <aop:before method="checkValidity" pointcut-ref="target" /> <aop:after
+				method="addLog" pointcut-ref="target" /> -->
+			<aop:around method="handlerControllerMethod" pointcut-ref="target" />
+		</aop:aspect>
+	</aop:config>
+
+</beans>
