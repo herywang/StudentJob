@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mdx.mapper.TeacherMapper">
+	
+	<update id="chanegPasswordById" >
+		update teacher set password=#{password} where user_id=#{user_id} 
+	</update>
+	
+	<select id="findTeacherByIdAndPassword" resultType="teacher">
+		select * from teacher where user_id=#{user_id} and password=#{password}
+	</select>
+	
+	
+	<update id="setAndroidPassword">
+		update teacher set password=#{password} where user_id=#{user_id}
+	</update>
+	
+	<update id="setAndroidImg">
+		update teacher set user_img=#{sb} where user_id=#{user_id}
+	</update>
+
+	<select id="getImgPahtById" resultType="String">
+		select user_img from teacher where user_id=#{user_id}
+	</select>
+
+	<select id="getTeacherByThree" resultType="Teacher">
+		select * from teacher where college=#{college} and user_id=#{user_id} and user_name=#{user_name}
+	</select>
+
+	<!--get Teacher by id-->
+	<select id="getTeacherById" resultType="WUsers">
+		SELECT * FROM users WHERE id = ${user_id} and power = 2
+	</select>
+
+	<!--get all diary by id-->
+	<select id="getAllDiaryById" resultType="WDiary">
+		SELECT * FROM diary WHERE user_id = #{user_id} ORDER BY start_time DESC
+	</select>
+
+	<!--get 已审核日志-->
+	<select id="getYDiaryById" resultType="WDiary">
+		SELECT * FROM diary WHERE user_id = #{user_id} and state != 0 AND state != 1 ORDER BY start_time desc
+	</select>
+	<!--get 未审核日志-->
+	<select id="getWDiaryById" resultType="WDiary">
+		SELECT * FROM diary WHERE user_id = #{user_id} and state = 0 ORDER BY start_time desc
+	</select>
+	<!--get 审核中的日志-->
+	<select id="getSDiaryById" resultType="WDiary">
+		SELECT * FROM diary WHERE user_id = #{user_id} AND state = 1 ORDER BY start_time desc
+	</select>
+	<!--插入一条记录-->
+	<insert id="insertRecord">
+		INSERT INTO diary(user_id, start_time, time, content, post, image, location)
+		VALUES (#{user_id},#{start_time},#{time},#{content},#{post},#{image},#{location})
+	</insert>
+	<!--get one diary-->
+	<select id="getDetailDiary" resultType="DetailDiary">
+		SELECT * from diary WHERE id = #{log_id}
+	</select>
+	<!--update password-->
+	<update id="updatePasswordById">
+        update users set password = #{pwd} where id = ${id}
+    </update>
+    <!--用户登陆验证-->
+    <select id="getUserByLoginMsg" resultType="WUsers">
+        select * from users where username=#{username} and password=#{password}
+    </select>
+</mapper>

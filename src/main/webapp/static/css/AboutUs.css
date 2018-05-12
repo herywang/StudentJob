@@ -1,0 +1,26 @@
+body {
+    background-color: rgba(229,229,229,.3);
+}
+
+.am-content {
+    padding: 0 ;
+}
+
+.logo-block {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.one-line-block {
+    padding: 0 ;
+}
+.one-line {
+    padding: 1rem 0;
+    font-size: 1.8rem;
+    background-color: white;
+    color: rgba(0,0,0,.7);
+}
+
+a>.one-line {
+    border-top: .1rem solid rgba(229,229,229,.4) ;
+}

@@ -1,0 +1,94 @@
+.daily {
+    margin: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 1px 0 rgba(0,0,0,.1);
+}
+.table-title {
+    height: 7rem;
+    line-height: 7rem;
+    font-size: 2.2rem;
+    font-weight: 600;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.back-button {
+    margin-top: 0.8rem;
+    margin-left: 0.8rem;
+    position: absolute;
+    height: 5.4rem;
+    width: 5.4rem;
+    text-align: center;
+    line-height: 5.4rem;
+    border-radius: 2.7rem;
+}
+.back-button a {
+    color: #0079C0;
+    font-size: 2.5rem;
+    height: 5.4rem;
+    width: 5.4rem;
+    display: block;
+    border: .2rem solid transparent;
+    border-radius: 2.7rem;
+    transition: .3s linear;
+}
+.back-button a:hover {
+    border: .2rem solid #0079C0;
+}
+
+.workProcess-tips {
+    color: rgba(0,0,0,.4);
+}
+
+.work-photos-block {
+    padding: 1rem;
+    border-top:0;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+.table {
+    margin-bottom: 0 ;
+}
+.table-label {
+    border-bottom:  1px solid #ddd;
+}
+.swiper-slide {
+    text-align: center;
+}
+.swiper-slide img {
+    cursor: url("../img/search.ico"),auto;
+    height: 500px;
+}
+
+
+.op-block {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.big-img-block {
+    z-index: 9999;
+    position: fixed;
+    top: 0 ;
+    background-color: rgba(0,0,0,.8);
+    padding: 0 ;
+    text-align: center;
+}
+.close-btn {
+    position: absolute;
+    right: 0 ;
+    font-size: 4rem;
+    width: 6rem;
+    height: 6rem;
+    line-height: 6rem;
+    text-align: center;
+    color: rgba(255,255,255,.6);
+    cursor: pointer;
+}
+.close-btn:hover {
+    color: rgba(255,255,255,1);
+}

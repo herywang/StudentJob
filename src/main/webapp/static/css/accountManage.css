@@ -1,0 +1,53 @@
+body {
+    background-color: rgba(229,229,229,.3);
+}
+
+.am-content {
+    padding: 0 ;
+}
+.one-line {
+    background-color: white;
+    color: rgba(0,0,0,.5);
+    font-weight: 500;
+    font-size: 1.6rem;
+    padding: .8rem 0 ;
+}
+.one-line:nth-child(2),.one-line:nth-child(3),.one-line:nth-child(4) {
+    border-bottom: solid 1px rgba(229,229,229,.4);
+}
+.one-line a {
+    color: rgba(0,0,0,.5);
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+.one-line a:focus {
+    outline: none;
+}
+
+.one-line:nth-child(1) {
+    margin-bottom: 1rem;
+}
+.one-line:nth-child(1)>a>div:nth-child(1) {
+    line-height: 4rem;
+    height: 4rem;
+}
+.one-line:nth-child(1) img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+}
+.one-line:nth-child(6) {
+    background-color: transparent;
+    font-size: 1.3rem;
+    font-weight: 200;
+}
+
+.glyphicon-lock {
+    background-color: rgba(0,210,220,1);
+    color: white;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+.right-go {
+    padding: .5rem 0;
+}

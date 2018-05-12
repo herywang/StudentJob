@@ -1,0 +1,62 @@
+body {
+    background-color: white;
+}
+
+.am-content {
+    padding: 0 ;
+}
+
+.swiper-container {
+    background-color: white;
+    padding: 0 ;
+    height: 15rem;
+    overflow: hidden;
+}
+.swiper-container>.swiper-wrapper {
+    height: 15rem;
+}
+.swiper-container>.swiper-wrapper>.swiper-slide {
+    height: 15rem;
+    text-align: center;
+}
+
+.center-info-block {
+    padding: 0 ;
+    border-top: solid .8rem #F5F4FA;
+    border-bottom: solid .8rem #F5F4FA;
+}
+.center-info-block>div {
+    margin-top: 1rem;
+    color: rgba(0,0,0,.7);
+}
+.center-info-block>.col-xs-4 {
+    margin-bottom: 1rem;
+}
+.words-block>div {
+    color: rgba(0,0,0,.7);
+}
+.words-block>.words-title {
+    padding: .5rem 0;
+    border-bottom: solid 1px rgba(0,0,0,.3);
+}
+.words-block>.words {
+    padding: .5rem 0 6.5rem 0;
+}
+
+.alter-link-btn {
+    width: 5rem;
+    height: 5rem;
+    position: fixed;
+    z-index: 999;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 2.5rem;
+    line-height: 5rem;
+    background-color: cornflowerblue;
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+}
+.alter-link-btn .glyphicon-pencil {
+    line-height: 5rem;
+}

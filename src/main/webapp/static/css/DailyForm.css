@@ -1,0 +1,236 @@
+body {
+    background-color: rgba(229,229,229,.4);
+}
+
+.am-content {
+    padding: 0 ;
+}
+.form-group {
+    padding: 0 ;
+    margin-bottom: 0 ;
+    border-bottom: .1rem solid rgba(229,229,229,.4);
+    cursor: pointer;
+}
+.input-group {
+    padding: 0 ;
+}
+.input-group div:nth-child(1){
+    font-size: 1.6rem;
+}
+.input-group-addon {
+    height: 4rem;
+    border-radius: 0;
+    background-color: white;
+    border: none;
+}
+.form-control {
+    height: 4rem;
+    border-radius: 0;
+    background-color: white;
+    border: none;
+    box-shadow: none;
+}
+
+.input:disabled {
+    background-color: white;
+    cursor: pointer;
+}
+.input:focus {
+    outline: none;
+    box-shadow: none;
+}
+.form-group:nth-child(1) .input-group .icon-style {
+    color: #1A95D8;
+}
+.form-group:nth-child(2) .input-group .icon-style {
+    color: #8E6945;
+}
+.form-group:nth-child(3) .input-group .icon-style {
+    color: #EBED52;
+}
+.form-group:nth-child(4) .input-group .icon-style {
+    color: #7DDAD6;
+}
+.form-group:nth-child(5) {
+    margin-top: 2rem;
+    border-top: solid .1rem rgba(229,229,229,.4);
+    border-bottom: 0;
+}
+.form-group:nth-child(6) {
+    padding: 10px;
+    background-color: white;
+    border-bottom: solid .1rem rgba(229,229,229,.4);
+}
+.form-group:nth-child(6) .btn {
+    padding: 0 ;
+}
+
+.select-block {
+    position: fixed;
+    z-index: 55;
+    width: 100%;
+    background:rgba(0,0,0,.5);
+
+}
+.select-block>.selection {
+    margin: 0 auto;
+    width: 90%;
+    background-color: white;
+    border-radius: 3px;
+}
+.select-block>.selection>.selection-title {
+    background-color: #5ABBCE;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    height: 50px;
+    line-height: 50px;
+}
+.select-block>.selection>.selections {
+    padding: 0 10px 10px 10px;
+    font-size: 0;
+}
+.select-block>.selection>.selections>span {
+    margin-top: 10px;
+    display: inline-block;
+    border-radius: 3px;
+    border: 1px solid #5ABBCE;
+    color: #5ABBCE;
+    background-color: white;
+    font-size: 1.4rem;
+    padding: 0 1rem;
+    margin-right: .5rem ;
+    height: 3rem;
+    line-height: 3rem;
+}
+.selection-active {
+    color: white;
+    background-color: #5ABBCE ;
+}
+.select-block>.selection>.selection-op-btn {
+    padding: 10px;
+    text-align: right;
+    font-size: 0 ;
+}
+.select-block>.selection>.selection-op-btn>span {
+    border: none;
+    width: 40%;
+    padding: 0 10px;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 3px;
+    line-height: 30px;
+    margin: 0 5%;
+    display: inline-block;
+    text-align: center;
+    background-color: #5ABBCE;
+}
+.select-block>.selection>.selection-op-btn>span:nth-child(1) {
+    background-color: #dcdddd ;
+    color: #666;
+}
+.select-block>.selection>.selection-op-btn>span:nth-child(2) {
+    background-color: #5ABBCE ;
+    color: white;
+}
+
+.submit-btn-block {
+    padding: 2rem;
+}
+.submit-btn-block>.submit-btn {
+    height: 3rem;
+    line-height: 3rem;
+    background-color: #5ABBCE;
+    display: block;
+    color: white;
+    font-size: 1.8rem;
+    border-radius: .5rem;
+}
+
+.image-block {
+    padding: 1rem;
+}
+
+/*上传图片样式开始*/
+.shade {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.shade div {
+    width: 300px;
+    height: 200px;
+    line-height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -150px;
+    background: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.a-upload {
+    text-align: center;
+    line-height: 50px;
+    height: 50px ;
+    width: 50px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    font-size: 20px;
+    font-weight: 600;
+}
+.input-cover{
+    position: absolute;
+    height: 50px ;
+    width: 50px;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+
+.a-upload input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+}
+
+.a-upload:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none
+}
+.img_div{
+    margin-top: 1rem;
+}
+.isImg{width: 50px; height: 50px; position: relative; float: left; margin-right: 1rem;background-color: lavender;text-align: center;}
+.removeBtn{position: absolute; top: -11px; right: -11px; z-index: 11; border: 0; border-radius: 50px; background: royalblue; width: 22px; height: 22px; color: white;}
+.shadeImg{position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.55);}
+.showImg{width: 400px; height: 500px; margin-top: 140px;}
+/*上传图片样式结束*/
