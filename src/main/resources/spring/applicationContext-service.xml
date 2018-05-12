@@ -18,6 +18,6 @@
 
 		<!--开启ioc注解-->
 		<!-- !!!!!!!修改包名 -->
-		<context:component-scan base-package="cn.mdx"/>
+		<context:component-scan base-package="cn.mdx.service.impl"/>
 
 </beans>

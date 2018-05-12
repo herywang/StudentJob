@@ -111,4 +111,14 @@
 		</aop:aspect>
 	</aop:config>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/h5/**"/>
+            <mvc:exclude-mapping path="/h5/Login*"/>
+            <!--<mvc:exclude-mapping path="/admin/**"/>-->
+            <mvc:exclude-mapping path="/static/**"/>
+            <bean class="cn.mdx.filter.LoginFilter"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>
